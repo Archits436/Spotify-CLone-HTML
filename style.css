@@ -105,6 +105,10 @@ nav ul li {
     border-radius: 5vh;
 }
 
+.songItemPlay{
+    margin: 0 5px;
+}
+
 .songItem img {
     width: 4vw;
     margin: 0 23px;
