@@ -115,6 +115,22 @@ document.getElementById('next').addEventListener("click", () => {
     document.getElementsByClassName('songItemPlay')[songIndex].classList.add("fa-circle-pause");
 })
 
+document.getElementById('shuffle').addEventListener("click", () => {
+    document.getElementsByClassName('songItemPlay')[songIndex].classList.remove("fa-circle-pause");
+    document.getElementsByClassName('songItemPlay')[songIndex].classList.add("fa-circle-play");
+    songIndex = Math.floor(Math.random() * songs.length)
+    audioElement.src = `songs/${songs[songIndex].songName}.mp3`;
+    masterSongName.innerText = songs[songIndex].songName;
+    audioElement.currentTime = 0;
+    audioElement.load();
+    audioElement.play();
+    songGif.style.opacity = 1;
+    masterPlay.classList.remove("fa-circle-play");
+    masterPlay.classList.add("fa-circle-pause");
+    document.getElementsByClassName('songItemPlay')[songIndex].classList.remove("fa-circle-play");
+    document.getElementsByClassName('songItemPlay')[songIndex].classList.add("fa-circle-pause");
+})
+
 document.getElementById('previous').addEventListener("click", () => {
     document.getElementsByClassName('songItemPlay')[songIndex].classList.remove("fa-circle-pause");
     document.getElementsByClassName('songItemPlay')[songIndex].classList.add("fa-circle-play");
